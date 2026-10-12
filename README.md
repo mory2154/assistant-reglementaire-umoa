@@ -12,7 +12,16 @@ quitte l'infrastructure.
 
 ## Pourquoi ce projet
 
-La réglementation bancaire de la BCEAO et de l’UMOA est dense, évolutive et parfois difficile à exploiter rapidement, notamment pour les professionnels de la conformité, les juristes et les auditeurs. Ce projet vise à faciliter l’accès à une information réglementaire fiable grâce à un assistant capable de répondre en français à partir des textes officiels, en citant précisément les articles qui justifient ses réponses. Conçu avec une architecture RAG et des modèles d’IA exécutés localement via Ollama, il privilégie la traçabilité, la confidentialité et la maîtrise des données. Son principe fondamental est simple : **fournir des réponses vérifiables et reconnaître ses limites plutôt que d’inventer une information réglementaire.**
+La réglementation bancaire de la BCEAO et de l'UMOA est dense, évolutive et
+parfois difficile à exploiter rapidement, notamment pour les professionnels de
+la conformité, les juristes et les auditeurs. Retrouver la bonne disposition,
+et s'assurer qu'elle est toujours en vigueur, prend du temps et expose à des
+erreurs d'interprétation.
+
+J'ai conçu ce projet pour mener une solution d'IA de bout en bout, du cadrage
+au déploiement, sur un cas d'usage réel de l'espace UMOA. Il est construit
+étape par étape et de façon documentée, avec une priorité : des réponses
+vérifiables, traçables jusqu'à l'article source.
 
 ## État d'avancement
 
