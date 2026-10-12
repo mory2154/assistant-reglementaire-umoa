@@ -1,0 +1,20 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Caches des outils
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Secrets : le fichier .env ne doit jamais être commité
+.env
+
+# Données (les PDF ne vont pas dans Git)
+data/
+
+# Éditeur et système
+.vscode/
+.DS_Store
