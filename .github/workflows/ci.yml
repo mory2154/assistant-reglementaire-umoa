@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  qualite:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer Poetry
+        run: pipx install poetry
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
+
+      - name: Installer les dépendances (versions de poetry.lock)
+        run: poetry install --no-interaction
+
+      - name: Lint et format
+        run: |
+          poetry run ruff check .
+          poetry run ruff format --check .
+
+      - name: Typage
+        run: poetry run mypy src tests
+
+      - name: Tests
+        run: poetry run pytest
