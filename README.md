@@ -2,8 +2,6 @@
 
 ![CI](https://github.com/mory2154/assistant-reglementaire-umoa/actions/workflows/ci.yml/badge.svg)
 
-> 🚧 Projet en construction, développé étape par étape.
-
 Assistant de questions-réponses sur la réglementation bancaire **BCEAO / UMOA**,
 en français. Objectif : **citer l'article source** de chaque affirmation, et
 **refuser plutôt qu'inventer** quand la réponse n'est pas dans les textes.
