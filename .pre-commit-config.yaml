@@ -1,0 +1,34 @@
+repos:
+  # Contrôles génériques sur tous les fichiers
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer        # saut de ligne final
+      - id: trailing-whitespace      # espaces en fin de ligne
+      - id: mixed-line-ending
+        args: ["--fix=lf"]           # fins de ligne LF
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]       # bloque un PDF commité par erreur
+      - id: detect-private-key       # bloque une clé secrète commitée
+
+  # Nos outils, exécutés via Poetry : mêmes versions que poetry.lock et que la CI
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: poetry run ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: poetry run ruff format
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: poetry run mypy src tests
+        language: system
+        types: [python]
+        pass_filenames: false
