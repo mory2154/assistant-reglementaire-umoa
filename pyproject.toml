@@ -23,3 +23,30 @@ dev = [
     "ruff (>=0.17.0,<0.18.0)",
     "mypy (>=2.4.0,<3.0.0)"
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E", "W",  # style de base (pycodestyle)
+    "F",       # erreurs réelles : imports inutilisés, noms non définis
+    "I",       # tri des imports
+    "B",       # pièges classiques (bugbear)
+    "UP",      # syntaxe Python moderne
+    "SIM",     # simplifications possibles
+    "S",       # sécurité (bandit)
+    "RUF",     # règles propres à ruff
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]  # assert est normal dans les tests
+
+[tool.mypy]
+strict = true
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
